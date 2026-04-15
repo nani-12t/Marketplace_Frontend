@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "mediid-frontend",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
