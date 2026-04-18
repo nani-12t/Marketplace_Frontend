@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { FileText, CheckCircle, XCircle, Clock, ExternalLink, User } from 'lucide-react';
+import { FileText, CheckCircle, XCircle, Clock, ExternalLink, User, Download } from 'lucide-react';
 import BuyerLayout from '../../components/common/BuyerLayout';
 import { marketplaceAPI } from '../../utils/api';
 import toast from 'react-hot-toast';
@@ -33,6 +33,17 @@ export default function ViewSubmissions() {
     } catch (err) {
       toast.error('Failed to update status');
     }
+  };
+
+  const downloadFile = (fileUrl, fileName) => {
+    if (!fileUrl) return;
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName || 'medical_document';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success('Download started');
   };
 
   const openFile = (fileUrl) => {
@@ -119,8 +130,16 @@ export default function ViewSubmissions() {
               
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 12 }}>
                 {sub.documents.map((doc, idx) => (
-                  <div key={idx} style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', background: 'var(--gray-50)', border: '1px solid var(--gray-200)', borderRadius: 8 }}>
-                    <FileText size={20} color="var(--teal)" style={{ marginRight: 12 }} />
+                  <div 
+                    key={idx} 
+                    onClick={() => downloadFile(doc.fileUrl, doc.fileName)}
+                    style={{ display: 'flex', alignItems: 'center', padding: '12px 16px', background: '#fff', border: '1px solid var(--gray-200)', borderRadius: 10, cursor: 'pointer', transition: 'all 0.2s', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}
+                    onMouseOver={(e) => e.currentTarget.style.borderColor = 'var(--teal)'}
+                    onMouseOut={(e) => e.currentTarget.style.borderColor = 'var(--gray-200)'}
+                  >
+                    <div style={{ width: 36, height: 36, background: '#f0fdfa', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: 12 }}>
+                      <FileText size={18} color="var(--teal)" />
+                    </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: 'var(--gray-800)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {doc.fileName || `${doc.type} Document`}
@@ -130,13 +149,9 @@ export default function ViewSubmissions() {
                       </p>
                     </div>
                     {doc.fileUrl && (
-                      <button 
-                        onClick={() => openFile(doc.fileUrl)}
-                        style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--teal)', padding: 4 }}
-                        title="View Document"
-                      >
-                        <ExternalLink size={16} />
-                      </button>
+                      <div style={{ color: 'var(--teal)', padding: 4 }}>
+                        <Download size={16} />
+                      </div>
                     )}
                   </div>
                 ))}

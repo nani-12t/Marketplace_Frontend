@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { Shield, AlertCircle, Eye, EyeOff, User, Building, FlaskConical } from 'lucide-react';
+import { Shield, Database, AlertCircle, Eye, EyeOff, User, Building, FlaskConical } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 
@@ -68,7 +68,7 @@ export default function Register() {
       }
 
       const data = await register(payload);
-      toast.success('Account created! Welcome to MediID 🎉');
+      toast.success('Account created! Welcome to Medi Market 🎉');
       
       if (data.user.role === 'buyer')         navigate('/buyer/dashboard');
       else if (data.user.role === 'hospital_admin') navigate('/hospital');
@@ -105,9 +105,9 @@ export default function Register() {
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
           <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
             <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg, #00b4a0, #38bdf8)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Shield size={20} color="white" />
+              <Database size={20} color="white" />
             </div>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, color: 'var(--navy)' }}>MediID</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, color: 'var(--navy)' }}>Medi Market</span>
           </Link>
           <h1 style={{ fontSize: 28, fontFamily: 'var(--font-display)', fontWeight: 700, marginBottom: 6 }}>Create Account</h1>
           <p style={{ color: 'var(--gray-500)', fontSize: 14 }}>

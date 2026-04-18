@@ -42,10 +42,10 @@ export default function Login() {
           <div style={{ width: 40, height: 40, background: 'linear-gradient(135deg, #00b4a0, #38bdf8)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Shield size={22} color="white" />
           </div>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 22, color: 'white' }}>MediID</span>
+          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 22, color: 'white' }}>Medi Market</span>
         </Link>
-        <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, color: 'white', marginBottom: 16, lineHeight: 1.3 }}>Your Health,<br />Secured & Connected</h2>
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.7, maxWidth: 380 }}>Access your complete medical history, book appointments, and manage your health — all in one place.</p>
+        <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, color: 'white', marginBottom: 16, lineHeight: 1.3 }}>The Health Data<br />Marketplace</h2>
+        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, lineHeight: 1.7, maxWidth: 380 }}>Securely manage, share, and monetize your medical data with researchers and healthcare providers.</p>
         {['AES-256 Encrypted', 'FHIR Compliant', 'Consent-Based Access'].map(item => (
           <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, marginTop: 16 }}>
             <div style={{ width: 20, height: 20, background: 'rgba(0,180,160,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

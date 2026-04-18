@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, Maximize, Search, Heart, ArrowRight, Activity } from 'lucide-react';
+import { Shield, Database, Search, DollarSign, ArrowRight, UserCheck, Briefcase, FileText } from 'lucide-react';
 
 const features = [
-  { icon: Maximize, title: 'Digital Medical ID', desc: 'One QR code carries your entire medical history, accessible anywhere instantly.', color: '#00b4a0' },
-  { icon: Shield, title: 'Secure & Consent-Based', desc: 'AES-256 encryption with full control over who sees your data.', color: '#38bdf8' },
-  { icon: Search, title: 'Find Doctors & Hospitals', desc: 'Search by specialization, view ratings, and book appointments seamlessly.', color: '#8b5cf6' },
-  { icon: Heart, title: 'Health Insurance', desc: 'Browse insurance plans and connect directly with agents.', color: '#f97066' },
+  { icon: Database, title: 'Upload Health Data', desc: 'Securely store your medical records and anonymize them for the marketplace.', color: '#00b4a0' },
+  { icon: Shield, title: 'Ownership & Control', desc: 'You own your data. Only sell what you want, when you want, to whom you choose.', color: '#38bdf8' },
+  { icon: Search, title: 'Data Requests', desc: 'Researchers and Doctors post specific requirements for medical data studies.', color: '#8b5cf6' },
+  { icon: DollarSign, title: 'Monetize Records', desc: 'Earn rewards or payments by contributing to medical breakthroughs.', color: '#f97066' },
 ];
 
 const stats = [
-  { label: 'Patients Registered', value: '2.4M+' },
-  { label: 'Partner Hospitals', value: '1,200+' },
-  { label: 'Doctors on Platform', value: '18,000+' },
-  { label: 'States Covered', value: '28' },
+  { label: 'Active Sellers', value: '180K+' },
+  { label: 'Data Buyers', value: '1,200+' },
+  { label: 'Successful Trades', value: '45K+' },
+  { label: 'Research Projects', value: '850+' },
 ];
 
 const steps = [
-  { num: '01', title: 'Create Your Profile', desc: 'Sign up and fill in your medical history, allergies, and emergency contact info.' },
-  { num: '02', title: 'Get Your Medical ID', desc: 'Receive a unique UID and a permanent QR code tied to your profile.' },
-  { num: '03', title: 'Show QR at Any Hospital', desc: 'Doctors scan your QR to instantly access your records with your consent.' },
-  { num: '04', title: 'Manage Everything Online', desc: 'Book appointments, upload reports, and manage insurance from one dashboard.' },
+  { num: '01', title: 'Upload & Secure', desc: 'Sellers (Patients) upload their medical data to their secure profile.' },
+  { num: '02', title: 'Browse Requests', desc: 'Buyers (Researchers) post requirements for specific types of data.' },
+  { num: '03', title: 'Consent to Sell', desc: 'Sellers receive requests and choose to provide data if they agree with the terms.' },
+  { num: '04', title: 'Execute Exchange', desc: 'Secure data transfer is completed and compensation is disbursed instantly.' },
 ];
 
 export default function Landing() {
@@ -31,13 +31,13 @@ export default function Landing() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 68 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg, #00b4a0, #38bdf8)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Shield size={20} color="white" />
+              <Database size={20} color="white" />
             </div>
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, color: 'var(--navy)' }}>MediID</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 20, color: 'var(--navy)' }}>Medi Market</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <Link to="/login" className="btn btn-secondary btn-sm">Sign In</Link>
-            <Link to="/register" className="btn btn-primary btn-sm">Get Started</Link>
+            <Link to="/register" className="btn btn-primary btn-sm">Join Marketplace</Link>
           </div>
         </div>
       </nav>
@@ -49,32 +49,22 @@ export default function Landing() {
 
         <div className="container" style={{ textAlign: 'center', position: 'relative' }}>
           <div className="badge badge-teal" style={{ display: 'inline-flex', marginBottom: 20, background: 'rgba(0,180,160,0.15)', color: '#00d4bc' }}>
-            🇮🇳 India's Digital Medical ID Platform
+            Transforming Medical Research with Data
           </div>
           <h1 style={{ fontSize: 'clamp(36px, 5vw, 60px)', fontFamily: 'var(--font-display)', fontWeight: 800, color: 'white', marginBottom: 20, lineHeight: 1.15 }}>
-            Your Health Records,<br />
-            <span style={{ background: 'linear-gradient(90deg, #00b4a0, #38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>One Scan Away</span>
+            Empowering Health Data<br />
+            <span style={{ background: 'linear-gradient(90deg, #00b4a0, #38bdf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Exchange & Research</span>
           </h1>
-          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', maxWidth: 560, margin: '0 auto 36px', lineHeight: 1.7 }}>
-            MediID gives every patient a permanent QR-based Medical ID. Doctors, hospitals, and pharmacies can access your complete health history instantly — with your consent.
+          <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.7)', maxWidth: 660, margin: '0 auto 36px', lineHeight: 1.7 }}>
+            Medi Market connects patients with researchers. Securely upload your health records, browse data requests from top institutions, and contribute to medical breakthroughs on your own terms.
           </p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/register" className="btn btn-primary btn-lg">
-              Create My Medical ID <ArrowRight size={18} />
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/register?role=patient" className="btn btn-primary btn-lg">
+              Start Selling Data <ArrowRight size={18} />
             </Link>
-          </div>
-
-          <div style={{ marginTop: 60, display: 'flex', justifyContent: 'center' }}>
-            <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '20px 28px', display: 'flex', alignItems: 'center', gap: 20 }}>
-              <div style={{ width: 80, height: 80, background: 'white', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Maximize size={48} color="var(--navy)" />
-              </div>
-              <div style={{ textAlign: 'left' }}>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Medical ID</p>
-                <p style={{ color: 'white', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, letterSpacing: '0.05em' }}>MID-xxxxxxx</p>
-                <p style={{ color: 'var(--teal)', fontSize: 13, marginTop: 4 }}>✓ Verified Patient</p>
-              </div>
-            </div>
+            <Link to="/register?role=buyer" className="btn btn-outline btn-lg" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)' }}>
+              Acquire Research Data
+            </Link>
           </div>
         </div>
       </section>
@@ -97,8 +87,8 @@ export default function Landing() {
       <section style={{ padding: '80px 0', background: 'var(--off-white)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, marginBottom: 12 }}>Everything You Need</h2>
-            <p style={{ color: 'var(--gray-500)', fontSize: 16, maxWidth: 480, margin: '0 auto' }}>One platform for patients, doctors, hospitals, pharmacies, and insurance.</p>
+            <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, marginBottom: 12 }}>Marketplace Ecosystem</h2>
+            <p style={{ color: 'var(--gray-500)', fontSize: 16, maxWidth: 480, margin: '0 auto' }}>Building the future of medical data transparency and accessibility.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}>
             {features.map(f => (
@@ -118,14 +108,14 @@ export default function Landing() {
       <section style={{ padding: '80px 0', background: 'var(--white)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, marginBottom: 12 }}>How It Works</h2>
+            <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, marginBottom: 12 }}>How the Marketplace Works</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
             {steps.map(step => (
               <div key={step.num} style={{ position: 'relative' }}>
-                <div style={{ fontSize: 48, fontFamily: 'var(--font-display)', fontWeight: 800, color: 'black', marginBottom: 8, lineHeight: 1 }}>{step.num}</div>
-                <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 8, color: 'black' }}>{step.title}</h3>
-                <p style={{ color: 'black', fontSize: 14, lineHeight: 1.6 }}>{step.desc}</p>
+                <div style={{ fontSize: 48, fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--gray-100)', marginBottom: 8, lineHeight: 1 }}>{step.num}</div>
+                <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12, color: 'var(--navy)' }}>{step.title}</h3>
+                <p style={{ color: 'var(--gray-600)', fontSize: 15, lineHeight: 1.6 }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -135,12 +125,12 @@ export default function Landing() {
       {/* CTA */}
       <section style={{ padding: '80px 0', background: 'linear-gradient(135deg, var(--navy), #0e4a4a)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <Activity size={40} color="var(--teal)" style={{ margin: '0 auto 16px' }} />
-          <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, color: 'white', marginBottom: 12 }}>Ready to Go Digital?</h2>
-          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 16, marginBottom: 32 }}>Join millions of patients and hospitals on MediID</p>
-          <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/register?role=patient" className="btn btn-lg" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Patient Registration</Link>
-            <Link to="/register?role=buyer" className="btn btn-lg" style={{ background: 'rgba(255,100,150,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Researcher Registration</Link>
+          <Briefcase size={40} color="var(--teal)" style={{ margin: '0 auto 16px' }} />
+          <h2 style={{ fontSize: 36, fontFamily: 'var(--font-display)', fontWeight: 700, color: 'white', marginBottom: 12 }}>Ready to Join the Marketplace?</h2>
+          <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 16, marginBottom: 32 }}>Choose your role and start contributing to global health innovation.</p>
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link to="/register?role=patient" className="btn btn-lg" style={{ background: 'var(--teal)', color: 'white' }}>Register as Seller (Patient)</Link>
+            <Link to="/register?role=buyer" className="btn btn-lg" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)' }}>Register as Researcher</Link>
           </div>
         </div>
       </section>
@@ -149,10 +139,10 @@ export default function Landing() {
       <footer style={{ background: 'var(--gray-900)', color: 'var(--gray-400)', padding: '32px 0', textAlign: 'center', fontSize: 14 }}>
         <div className="container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'center', marginBottom: 8 }}>
-            <Shield size={16} color="var(--teal)" />
-            <span style={{ color: 'white', fontFamily: 'var(--font-display)', fontWeight: 600 }}>MediID</span>
+            <Database size={16} color="var(--teal)" />
+            <span style={{ color: 'white', fontFamily: 'var(--font-display)', fontWeight: 600 }}>Medi Market</span>
           </div>
-          <p>© 2025 MediID. Secure Digital Health Identity for India.</p>
+          <p>© 2025 Medi Market. The Future of Medical Data Exchange.</p>
         </div>
       </footer>
     </div>

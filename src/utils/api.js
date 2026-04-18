@@ -2,16 +2,19 @@ import axios from 'axios';
 
 // Ensure API URL consistently ends with /api even if configured without it in Vercel
 const getBaseURL = () => {
-  let url = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+  // 1. If running on localhost, always try the local backend first
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return 'http://localhost:5000/api';
+  }
 
-  // Strip trailing slashes and ensure /api is exactly there
+  // 2. Otherwise use the environment variable (for production)
+  let url = process.env.REACT_APP_API_URL || 'https://marketplace-backend-tan.vercel.app/api';
+
   url = url.trim().replace(/\/+$/, '');
-
   if (!url.toLowerCase().endsWith('/api')) {
     url = `${url}/api`;
   }
 
-  console.log('🌐 API Base URL:', url);
   return url;
 };
 
