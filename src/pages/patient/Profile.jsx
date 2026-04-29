@@ -263,13 +263,32 @@ export default function PatientProfile() {
     if (!docForm.title.trim()) return;
     setDocUploading(true);
     try {
-      // If you add a real upload endpoint later, upload docForm.file here first
+      let finalFileUrl = docForm.fileUrl.trim();
+
+      if (docForm.file) {
+        // 1. Get presigned URL
+        const { data } = await patientAPI.getPresignedUrl(docForm.file.name, docForm.file.type);
+        const { presignedUrl, finalUrl } = data;
+
+        // 2. Upload file directly to S3
+        await fetch(presignedUrl, {
+          method: 'PUT',
+          body: docForm.file,
+          headers: {
+            'Content-Type': docForm.file.type,
+          },
+        });
+
+        // 3. Use the S3 URL
+        finalFileUrl = finalUrl;
+      }
+
       await patientAPI.addDocument({
         type:         docForm.type,
         title:        docForm.title.trim(),
         hospitalName: docForm.hospitalName.trim(),
         doctorName:   docForm.doctorName.trim(),
-        fileUrl:      docForm.fileUrl.trim(),
+        fileUrl:      finalFileUrl,
         fileName:     docForm.fileName,
         notes:        docForm.notes.trim(),
       });
