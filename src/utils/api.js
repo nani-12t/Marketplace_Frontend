@@ -61,6 +61,7 @@ export const patientAPI = {
   updateProfile: (data) => api.put('/patients/profile', data),
   getQR: () => api.get('/patients/qr'),
   addDocument: (data) => api.post('/patients/documents', data),
+  getPresignedUrl: (fileName, fileType) => api.get('/patients/documents/upload-url', { params: { fileName, fileType } }),
   deleteDocument: (id) => api.delete(`/patients/documents/${id}`),
   // Unified medical benefits (govt + employer + personal)
   addMedicalBenefit: (data) => api.post('/patients/medical-benefits', data),
